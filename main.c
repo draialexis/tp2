@@ -102,7 +102,6 @@ float aireTriangleRectangle(float longueur, float largeur) {
 }
 
 //ex3
-
 void readIntegersWithFor(int n) {
     if (n == 1) {
         printf("%d\n", n);
@@ -116,6 +115,24 @@ void readIntegersWithFor(int n) {
         }
     }
 }
+
+//ex5
+void readIntegersWithWhile(int n) {
+    int i = 1;
+
+    if (n == 1) {
+        printf("%d\n", n);
+    } else if (n > 1) { // pour n entier positif
+        while (i <= n) {
+            printf("%d\n", i++);
+        }
+    } else { // pour n nul ou négatif
+        while (i >= n) {
+            printf("%d\n", i--);
+        }
+    }
+}
+
 
 int main() {
 
@@ -162,5 +179,11 @@ int main() {
         printf("i4 vaut %d\n", i4++);// ne pas oublier d'incrémenter la variable
         //...d'itération manuellement dans une boucle while
     }
+
+    //ex5
+    int n5;
+    printf("Veuillez entrer un entier:\n");
+    scanf("%d", &n5);
+    readIntegersWithWhile(n5);
     return 0;
 }
