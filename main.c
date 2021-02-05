@@ -110,6 +110,7 @@ int main() {
     printf("Debut du programme principal...\n");
     printf("Choisissez un entier pour la diagonale:");
     scanf("%d", &n1); // Acquisition de l'entier n1 par la console
+    fflush(stdin);
 
     m1 = diagonale(n1); // Lancement de la fonction diagonale, en stockant la valeur de retour dans la variable m1.
     printf("La diagonale a utilise %d espaces.\n", m1);
@@ -122,8 +123,10 @@ int main() {
 
     printf("Longueur du rectangle:");
     scanf("%f", &L);
+    fflush(stdin);
     printf("Largeur du rectangle:");
     scanf("%f", &l);
+    fflush(stdin);
 
     resultat = perimetreRectangle(L, l);
     printf("Le perimetre du rectangle ayant comme longueur %f et comme largeur %f est: %f.\n", L, l, resultat);
