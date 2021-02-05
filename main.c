@@ -203,6 +203,105 @@ void xTriangle4(int n) {
     printf("\n");
 }
 
+//ex11v2
+int nbChiffres(int n) {
+    int figures = 0;
+    while (n > 0) {
+        n = n / 10;
+        ++figures;
+    }
+    return figures;
+}
+
+void chiffreParChiffre(int n) {
+    printf("On decompose l'entier %d :\n", n);
+    while (n > 0) {
+        printf("%d\n", n % 10);
+        n = n / 10;
+    }
+}
+
+void affiche(int n, int longueur) {
+    for (int i = 0; i < longueur - nbChiffres(n); ++i) {
+        printf("0");
+    }
+    printf("%d ", n);
+}
+
+void rectangleSommeAligne(int n, int m) {
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= m; ++j) {
+            affiche(i + j, nbChiffres(n + m));
+        }
+        printf("\n");
+    }
+}
+
+void chiffreParChiffreOrdonne(int n) {
+    printf("On decompose l'entier %d dans l'ordre :\n", n);
+    int c = nbChiffres(n);
+    int p = 1;
+    for (int i = 0; i < c - 1; ++i) {
+        p = p * 10;
+    }
+
+    while (n != 0) {
+        printf("%d\n", n / p);
+        n = n - ((n / p) * p);
+        p = p / 10;
+        --c;
+    }
+    printf("\n");
+}
+
+//ex12
+int suivant(int n) {
+    int result;
+    if (n == 1) {
+        result = 1;
+    } else if ((n % 2) == 0) {
+        result = n / 2;
+    } else {
+        result = (3 * n) + 1;
+    }
+    return result;
+}
+
+void syracuse(int n) {
+    while (n != 1) {
+        printf("%d, ", n);
+        n = suivant(n);
+    }
+    printf("et %d\n", n);
+}
+
+//ex13
+void afficheZigzag(int n) {
+    for (int i = 0; i < n; i++) {
+        printf("z");
+    }
+    printf("igzag");
+}
+
+int zigzag(int debut, int fin, int nbDeZ) {
+    int n = fin - debut + 1;
+    if (n > 1) {
+        for (int i = debut; i <= fin; ++i) {
+            if (i % 2 == 0) {
+                printf("%d ", i);
+            }
+            afficheZigzag(nbDeZ);
+            if (i % 2 != 0) {
+                printf(" %d", i);
+            }
+            printf("\n");
+        }
+        return (n);
+    } else {
+        return 0;
+    }
+}
+
 int main() {
 
     //ex1
@@ -231,9 +330,9 @@ int main() {
 
     resultat = perimetreRectangle(L2, l2);
     printf("Le perimetre du rectangle ayant comme longueur %f et comme largeur %f est: %f.\n", L2, l2, resultat);
-    printf("L2'aire de ce rectangle est: %f.\n", aireRectangle(L2, l2));
+    printf("L'aire de ce rectangle est: %f.\n", aireRectangle(L2, l2));
     resultat = aireTriangleRectangle(L2, l2);
-    printf("L2'aire du triangle rectangle ayant comme longueur %f et comme largeur %f est: %f.\n", L2, l2, resultat);
+    printf("L'aire du triangle rectangle ayant comme longueur %f et comme largeur %f est: %f.\n", L2, l2, resultat);
 
     //ex3
     int n3;
@@ -257,20 +356,56 @@ int main() {
     readIntegersWithWhile(n5);
 
     //ex9
-    int input;
+    int input9;
     printf("Veuillez entrer un entier superieur a un :\n");
-    scanf("%d", &input);
+    scanf("%d", &input9);
     fflush(stdin);
-    if (input > 1 && input < 130){
-        xLine(input);
-        xSquare(input);
-        xTriangle1(input);
-        xTriangle2(input);
-        xTriangle3(input);
-        xTriangle4(input);
+    if (input9 > 1 && input9 < 130){
+        xLine(input9);
+        xSquare(input9);
+        xTriangle1(input9);
+        xTriangle2(input9);
+        xTriangle3(input9);
+        xTriangle4(input9);
     } else {
         printf("INVALID INPUT\n");
     }
+
+    //ex11v2
+    int input11v21, input11v22;
+    printf("Entrez deux entiers strictement positifs :\n");
+    scanf("%d\n%d", &input11v21, &input11v22);
+    fflush(stdin);
+    if (input11v21 > 0 && input11v22 > 0) {
+        chiffreParChiffre(input11v21);
+        chiffreParChiffre(input11v22);
+        printf("L'entier %d contient %d chiffres\n", input11v21, nbChiffres(input11v21));
+        printf("L'entier %d contient %d chiffres\n", input11v22, nbChiffres(input11v22));
+        rectangleSommeAligne(input11v21, input11v22);
+        chiffreParChiffreOrdonne(input11v21 + input11v22);
+    } else {
+        printf("INVALID INPUT\n");
+    }
+
+    //ex12
+    int input12;
+    printf("Veuillez entrer un entier superieur a 1:\n");
+    scanf("%d", &input12);
+    fflush(stdin);
+    if (input12 > 1) {
+        syracuse(input12);
+    } else {
+        printf("INVALID INPUT");
+    }
+
+    //ex13
+    int input131;
+    int input132;
+    int input133;
+    printf("Veuillez entrer trois entiers (debut, fin, nb de z (debut devra etre inferieur a fin)):\n");
+    scanf("%d\n%d\n%d", &input131, &input132, &input133);
+    fflush(stdin);
+    printf("renvoie : %d\n", zigzag(input131, input132, input133));
 
     return 0;
 }
