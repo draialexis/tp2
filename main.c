@@ -22,21 +22,20 @@ Enfin, on renvoie a main() le nbEspaces, et main affiche ce bilan
 
 */
 
-int diagonale (int n) // Ecrit les entiers de 0 à n en formant une diagonale
+int diagonale(int n) // Ecrit les entiers de 0 à n en formant une diagonale
 {
-    int i,j;
-    int nbEspaces=0;
+    int i, j;
+    int nbEspaces = 0;
 
-    for (i=0; i<=n; i++)
-    {
-        for (j=0; j<i; j++)
+    for (i = 0; i <= n; i++) {
+        for (j = 0; j < i; j++)
             // La boucle permet d'écrire i espaces
         {
             printf(" "); // Ecrire un espace
             nbEspaces++; // incrementation du nombre d'espaces
         }
         // Ecriture de l'entier voulu, suivi d'un retour à la ligne
-        printf("%d \n",i);
+        printf("%d \n", i);
 
     }
 
@@ -102,6 +101,22 @@ float aireTriangleRectangle(float longueur, float largeur) {
     return aire;
 }
 
+//ex3
+
+void readIntegersWithFor(int n) {
+    if (n == 1) {
+        printf("%d\n", n);
+    } else if (n > 1) { // pour n entier positif
+        for (int i = 1; i <= n; ++i) {
+            printf("%d\n", i);
+        }
+    } else { // pour n nul ou négatif
+        for (int i = 1; i >= n; --i) {
+            printf("%d\n", i);
+        }
+    }
+}
+
 int main() {
 
     //ex1
@@ -133,6 +148,13 @@ int main() {
     printf("L'aire de ce rectangle est: %f.\n", aireRectangle(L, l));
     resultat = aireTriangleRectangle(L, l);
     printf("L'aire du triangle rectangle ayant comme longueur %f et comme largeur %f est: %f.\n", L, l, resultat);
+
+    //ex3
+    int n3;
+    printf("Veuillez entrer un entier:\n");
+    scanf("%d", &n3);
+    fflush(stdin);
+    readIntegersWithFor(n3);
 
     return 0;
 }
