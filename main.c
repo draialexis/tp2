@@ -124,7 +124,7 @@ int main() {
 
     printf("Debut du programme principal...\n");
     printf("Choisissez un entier pour la diagonale:");
-    scanf("%d", &n1); // Acquisition de l'entier n1 par la console
+    scanf("%d", &n1); // Acquisition de l2'entier n1 par la console
     fflush(stdin);
 
     m1 = diagonale(n1); // Lancement de la fonction diagonale, en stockant la valeur de retour dans la variable m1.
@@ -133,21 +133,21 @@ int main() {
     printf("Fin du programme principal.\n");
 
     //ex2
-    float L, l;
+    float L2, l2;
     float resultat;
 
     printf("Longueur du rectangle:");
-    scanf("%f", &L);
+    scanf("%f", &L2);
     fflush(stdin);
     printf("Largeur du rectangle:");
-    scanf("%f", &l);
+    scanf("%f", &l2);
     fflush(stdin);
 
-    resultat = perimetreRectangle(L, l);
-    printf("Le perimetre du rectangle ayant comme longueur %f et comme largeur %f est: %f.\n", L, l, resultat);
-    printf("L'aire de ce rectangle est: %f.\n", aireRectangle(L, l));
-    resultat = aireTriangleRectangle(L, l);
-    printf("L'aire du triangle rectangle ayant comme longueur %f et comme largeur %f est: %f.\n", L, l, resultat);
+    resultat = perimetreRectangle(L2, l2);
+    printf("Le perimetre du rectangle ayant comme longueur %f et comme largeur %f est: %f.\n", L2, l2, resultat);
+    printf("L2'aire de ce rectangle est: %f.\n", aireRectangle(L2, l2));
+    resultat = aireTriangleRectangle(L2, l2);
+    printf("L2'aire du triangle rectangle ayant comme longueur %f et comme largeur %f est: %f.\n", L2, l2, resultat);
 
     //ex3
     int n3;
@@ -156,5 +156,11 @@ int main() {
     fflush(stdin);
     readIntegersWithFor(n3);
 
+    //ex4
+    int i4 = 0;
+    while (i4 <= 10) {
+        printf("i4 vaut %d\n", i4++);// ne pas oublier d'incrémenter la variable
+        //...d'itération manuellement dans une boucle while
+    }
     return 0;
 }
